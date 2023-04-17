@@ -1,7 +1,7 @@
 # Gyazo-Termux
-Android端末の画像フォルダから共有ボタンを押してTermuxを選択すると、画像がGyazoにアップロードされ、拡張子付きのURLをクリップボードにコピーすることができます。
-### 手順
-1. [F-Droid](https://f-droid.org/)からF-Droidアプリをインストールします。
+Android端末で画像の共有ボタンを押してTermuxを選択するとGyazoにアップロード、拡張子付きのURLをクリップボードにコピーすることができます。
+### 手順（すべてAndroidスマートフォンから行います）
+1. [F-Droidのサイト](https://f-droid.org/)からF-Droidアプリをインストールします。
 1. F-Droidアプリを起動し、検索バーからTermuxとTermux:APIアプリを見つけてインストールします。
 1. Termuxを開き、ストレージへのアクセス許可を得るために以下のコマンドを実行します
     ```
@@ -23,9 +23,15 @@ Android端末の画像フォルダから共有ボタンを押してTermuxを選�
     nano $HOME/bin/gyazo-upload.py
     ```
 1. githubの `gyazo-upload.py` のコードをコピーして貼り付けます。
-1. Gyazo APIキーを取得し置き換えて保存します。  
-    Gyazoアカウントでログインし、https://gyazo.com/api にアクセスしてAPIキーを取得し、 `YOUR_API_KEY` を自分のAPIキーに置き換えます（''の記号は必要）。  
-    保存します（`Ctrl + X` を押してからYを押し、Enterを押して保存します）。
+1. Gyazo APIキーを取得します。
+    1. Gyazoにログイン
+    1. [APIのページ](https://gyazo.com/api)の`アプリケーションを登録`をクリック
+    1. `New Application`
+    1. 名前とコールバックURLを設定して`Submit`
+        - Name: `termux` とか
+        - Calleback URL: 使わないのでなんでもいい `http://example.com/` とか
+1. `gyazo-upload.py` の `YOUR_API_KEY` を自分の `access token` に置き換えます（前後の`'`の記号は必要）。  
+    保存します（`Ctrl + X` を押してからYを押し、Enterを押して保存）。
 1. 次のコマンドを実行して、 `$HOME/bin` ディレクトリに `termux-file-editor` スクリプトを作成します。
     ```
     nano $HOME/bin/termux-file-editor
